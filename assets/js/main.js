@@ -81,18 +81,17 @@
 
 			var $gallery = $('.gallery');
 
-			$gallery.poptrox({
-				baseZIndex: 10001,
-				useBodyOverflow: false,
-				usePopupEasyClose: false,
-				overlayColor: '#1f2328',
-				overlayOpacity: 0.65,
-				usePopupDefaultStyling: false,
-				usePopupCaption: true,
+			$('.gallery').poptrox({
+				caption: function($a) {
+				  return $a.attr('data-caption');
+				},
+				overlayColor: '#000',
+				overlayOpacity: 0.75,
+				popupCloserText: '',
 				popupLoaderText: '',
-				windowMargin: 50,
-				usePopupNav: true
-			});
+				selector: 'a.image',
+				usePopupCaption: true,
+			  });
 
 			// Hack: Adjust margins when 'small' activates.
 				breakpoints.on('>small', function() {
