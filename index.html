@@ -20,13 +20,38 @@
 				<nav>
 					<ul>
 						<li><a href="#intro">Intro</a></li>
-						<li><a href="#one">What I Do</a></li>
-						<li><a href="#two">Who I Am</a></li>
+						<!-- <li><a href="#one">What I Do</a></li>
+						<li><a href="#two">Who I Am</a></li> -->
 						<li><a href="#work">Design Process</a></li>
 						<li><a href="#contact">About Members</a></li>
 					</ul>
 				</nav>
 			</header>
+
+			<style>
+				table {
+				  width: 100%;
+				  border-collapse: collapse;
+				  margin-top: 1em;
+				}
+			  
+				th, td {
+				  border: 1px solid #ccc;
+				  padding: 12px;
+				  text-align: left;
+				  vertical-align: top;
+				}
+			  
+				th {
+				  background-color: #222;
+				  color: #fff;
+				}
+			  
+				td {
+				  background-color: #111;
+				  color: #eee;
+				}
+			  </style>
 
 		<!-- Intro -->
 			<section id="intro" class="main style1 dark fullscreen" style="background-image: url('images/wesbite_setup_images/smartwatch_cad_1.png'); background-size: cover; background-position: center;">
@@ -45,7 +70,7 @@
 			<section id="one" class="main style2 right dark fullscreen" style="background-image: url('images/wesbite_setup_images/smartwatch_layout_bcu.png'); background-size: cover; background-position: center;">
 				<div class="content box style2">
 					<header>
-						<h2>What I Do</h2>
+						<h2>Figure out what to add</h2>
 					</header>
 					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
 					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
@@ -58,7 +83,7 @@
 			<section id="two" class="main style2 left dark fullscreen"class="main style2 right dark fullscreen" style="background-image: url('images/wesbite_setup_images/smartwatch_schem.png'); background-size: cover; background-position: center;">
 				<div class="content box style2">
 					<header>
-						<h2>Who I Am</h2>
+						<h2>Here Too</h2>
 					</header>
 					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
 					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
@@ -71,36 +96,372 @@
 			<section id="work" class="main style3 primary">
 				<div class="content">
 					<header>
-						<h2>My Work</h2>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
+						<h2>Project Introduction and Motivation</h2>
+					</header>
+						<p style="text-align: left;">Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
 						Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
 						arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
-					</header>
+						<h2>High-Level Design</h2>
+						<h2>Hardware Design</h2>
+						<h3>PCB Design</h3>
+						<p style="text-align: left;">Our hardware design is centered around our custom PCB built to house all components in as compact of a package as possible. This compactness was our driving design principle as we did not want our watch to be unwieldy on the wrist, and we were aiming to have a similar form factor as an Apple Watch. To do this, we considered the placement of the largest components first: the Pico W and the OLED screen. Specifically, we placed the Pico W lengthwise on the back of the PCB, and the OLED screen on the front. Incidentally, the mounting holes for the OLED screen fit just outside the width of the Pico W, meaning we did not have any issues with their bounding boxes colliding. We also placed these components based on the intended direction the watch was to be worn on the wrist, specifically so that a typical right-handed person who would wear a watch on their left wrist would see the screen in the correct orientation (so that we would not have to do any 180 degree flips in software) and the Pico W's antenna would face outward from their wrist to have the best signal integrity. After placing these largest components, we placed the other smaller components in the voids remaining on the board. For the microphone and speaker, it was critical that they were on opposite sides of the board so as to not cause feedback issues, although this did not end up being an issue as we eventually replaced our tiny speaker with a standard 3.5mm headphone jack as the speaker was not suitable to be driven without an on-board amplifier. As such, the microphone was placed at the top left and the speaker/DAC output at the top right. Next, we placed the 1.8V LDO and LiPo connector on the bottom left of the board, and the 6-pin JST connector for the heart rate daughter board on the bottom right. For the heart rate sensor itself, we made a separate "daughter" board for it as well as the decoupling capacitors since it needs to press tightly against the skin in order to work properly, and this could not be accomplished if put on the main board. We also placed the DAC and IMU on the right side of the board, as well as the three buttons on the left side, with various decoupling capacitors and resistors placed in any spare locations on either side of the board.</p>
+						
 
 					<!-- Gallery  -->
-						<div class="gallery">
-							<article class="from-left">
-								<a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" title="The Anonymous Red" alt="" /></a>
-							</article>
-							<article class="from-right">
-								<a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" title="Airchitecture II" alt="" /></a>
-							</article>
-							<article class="from-left">
-								<a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" title="Air Lounge" alt="" /></a>
-							</article>
-							<article class="from-right">
-								<a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" title="Carry on" alt="" /></a>
-							</article>
-							<article class="from-left">
-								<a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" title="The sparkling shell" alt="" /></a>
-							</article>
-							<article class="from-right">
-								<a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" title="Bent IX" alt="" /></a>
-							</article>
-						</div>
+					<!-- <div class="gallery">
+						<article class="from-left">
+							<a href="images/fulls/01.jpg" class="image fit"
+							   data-caption="<div class='caption-box'>
+								 <h2>Functionality 5: The Sparkling Shell</h2>
+								 <p>We implemented capacitive touch sensors to detect user input on the watch surface.</p>
+								 <p>Sensor readings were processed and output to a small OLED screen using I2C.</p>
+								 <p>We designed a visual interface to reflect current sensor states and interaction modes.</p>
+								 <p>To reduce power usage, we dimmed the screen after periods of inactivity.</p>
+								 <p>All components were integrated into the prototype’s enclosure for real-time testing.</p>
+							   </div>">
+							  <img src="images/thumbs/05.jpg" alt="Functionality 5" />
+							</a>
+						  </article>
+					  
+						<article class="from-right">
+						  <a href="images/fulls/02.jpg" class="image fit"
+							 data-caption="<h2>Functionality 2: Airchitecture II</h2><p>We integrated the temperature and motion sensors, optimized sampling rates, and laid the groundwork for BLE-based transmission protocols.</p>">
+							<img src="images/thumbs/02.jpg" alt="Functionality 2" />
+						  </a>
+						</article>
+					  
+						<article class="from-left">
+						  <a href="images/fulls/03.jpg" class="image fit"
+							 data-caption="<h2>Functionality 3: Air Lounge</h2><p>This phase involved setting up Bluetooth Low Energy (BLE) advertisements and connection events with a custom app interface for data reception.</p>">
+							<img src="images/thumbs/03.jpg" alt="Functionality 3" />
+						  </a>
+						</article>
+					  
+						<article class="from-right">
+						  <a href="images/fulls/04.jpg" class="image fit"
+							 data-caption="<h2>Functionality 4: Carry On</h2><p>We enabled power-saving features including deep sleep and wake-on-interrupt triggered by accelerometer movement or button press.</p>">
+							<img src="images/thumbs/04.jpg" alt="Functionality 4" />
+						  </a>
+						</article>
+					  
+						<article class="from-left">
+							<div class="tile" onclick="openModal('modal5')">
+								<img src="images/thumbs/05.jpg" alt="Functionality 5" />
+							  </div>
+							  
+							  <div id="modal5" class="custom-modal">
+								<div class="custom-modal-content">
+								  <span class="close" onclick="closeModal('modal5')">&times;</span>
+								  <h2>Functionality 5: The Sparkling Shell</h2>
+								  <img src="images/fulls/05.jpg" alt="Full Image" class="modal-img" />
+								  <p>We implemented capacitive touch sensors to detect user input on the watch surface.</p>
+								  <p>Sensor readings were processed and output to a small OLED screen using I2C.</p>
+								  <p>A visual interface was designed to reflect sensor states and interaction modes.</p>
+								  <p>To conserve power, we dimmed the screen after inactivity using timers.</p>
+								  <p>All components were integrated into the case for testing and feedback.</p>
+								</div>
+							  </div>
+						 
+						</article>
+					  
+						<article class="from-right">
+						  <a href="images/fulls/06.jpg" class="image fit"
+							 data-caption="<h2>Functionality 6: Bent IX</h2><p>All features were integrated into the final smartwatch prototype: BLE, touch, sensors, low power management, and mobile app connectivity.</p>">
+							<img src="images/thumbs/06.jpg" alt="Functionality 6" />
+						  </a>
+						</article>
+					  </div>
 
 				</div>
-			</section>
+			</section> -->
+
+			<section class="tiles">
+				<!-- Tile 1 -->
+				<article class="style1" onclick="openModal('modal1')">
+				  <span class="image">
+					<img src="images/thumbs/01.jpg" alt="Functionality 1" />
+				  </span>
+				  <a href="javascript:void(0);">
+					<h2>Real-Time NTP Update</h2>
+					<div class="content">
+					  <p>Click to learn more</p>
+					</div>
+				  </a>
+				</article>
+			  
+				<!-- Tile 2 -->
+				<article class="style2" onclick="openModal('modal2')">
+				  <span class="image">
+					<img src="images/thumbs/02.jpg" alt="Functionality 2" />
+				  </span>
+				  <a href="javascript:void(0);">
+					<h2>Texting</h2>
+					<div class="content">
+					  <p>Click to learn more</p>
+					</div>
+				  </a>
+				</article>
+			  
+				<!-- Tile 3 -->
+				<article class="style3" onclick="openModal('modal3')">
+				  <span class="image">
+					<img src="images/thumbs/03.jpg" alt="Functionality 3" />
+				  </span>
+				  <a href="javascript:void(0);">
+					<h2>Heart Rate and SPO2 Monitoring</h2>
+					<div class="content">
+					  <p>Click to learn more</p>
+					</div>
+				  </a>
+				</article>
+			  
+				<!-- Tile 4 -->
+				<article class="style4" onclick="openModal('modal4')">
+				  <span class="image">
+					<img src="images/thumbs/04.jpg" alt="Functionality 4" />
+				  </span>
+				  <a href="javascript:void(0);">
+					<h2>Activity Tracking & Screen Orientation Check</h2>
+					<div class="content">
+					  <p>Click to learn more</p>
+					</div>
+				  </a>
+				</article>
+			  
+				<!-- Tile 5 -->
+				<article class="style5" onclick="openModal('modal5')">
+				  <span class="image">
+					<img src="images/thumbs/05.jpg" alt="Functionality 5" />
+				  </span>
+				  <a href="javascript:void(0);">
+					<h2>Audio Recording</h2>
+					<div class="content">
+					  <p>Click to learn more</p>
+					</div>
+				  </a>
+				</article>
+			  
+				<!-- Tile 6 -->
+				<article class="style6" onclick="openModal('modal6')">
+				  <span class="image">
+					<img src="images/thumbs/06.jpg" alt="Functionality 6" />
+				  </span>
+				  <a href="javascript:void(0);">
+					<h2>Stopwatch</h2>
+					<div class="content">
+					  <p>Click to learn more</p>
+					</div>
+				  </a>
+				</article>
+			  </section>
+
+			    <!-- Tile 7 -->
+				<!-- <article class="style7" onclick="openModal('modal7')">
+					<span class="image">
+					  <img src="images/thumbs/06.jpg" alt="Functionality 6" />
+					</span>
+					<a href="javascript:void(0);">
+					  <h2>Audio Recording</h2>
+					  <div class="content">
+						<p>Click to learn more</p>
+					  </div>
+					</a>
+				  </article>
+				</section> -->
+
+				<!-- Tile 8 -->
+				<!-- <article class="style6" onclick="openModal('modal8')">
+					<span class="image">
+						<img src="images/thumbs/06.jpg" alt="Functionality 6" />
+					</span>
+					<a href="javascript:void(0);">
+						<h2>Info Screen</h2>
+						<div class="content">
+						<p>Click to learn more</p>
+						</div>
+					</a>
+					</article>
+				</section> -->
+			  
+			  <!-- Modals -->
+			  <div id="modal1" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal1')">&times;</span>
+				  <h2>Real-Time NTP Update</h2>
+				  <img src="images/fulls/01.jpg" class="modal-img" />
+				  <p style="text-align: left;">Any smartwatch should be able to display the real time as pulled from the network. Since we are using the Pico W, we accomplish this by pulling the time via NTP upon a POR of the watch, and subsequently update the time based on the internal timer after this so as to not have to poll the network every second. We keep a variable, ntp_time_initialized, which determines whether or not the time has been initialized from the network yet. If it has not, we call get_current_ntp_time() to obtain this time. If the time has already been initialized, we simply check if the previous update time subtracted from the current time is one second. If it has been, we update the seconds, minutes, and hours variables accordingly. In the event that the Pico W did not connect to the network upon initialization, we simply use the uptime from power-on as the time displayed. These updates happen every loop iteration so that the time displayed is always accurate. If the main_menu_state is currently on the MM_TIME setting, we display this real time on the screen, alongside the date as pulled from NTP, the battery percentage as read from the ADC, as well as an icon indicating the connection status to the network. The battery percentage is calculated using a custom map_batt() function which takes in the minimum and maximum ADC values that correspond to the minimum and maximum battery voltages of 3.2V and 4.2V, respectively, divided in half as per the voltage divider on the PCB, as well as the minimum and maximum battery percentages which are, of course, 0% and 100%. A simple calculation using equivalent fractions is performed to convert the raw ADC value into a battery percentage.</p>
+				  <table>
+					<thead>
+					  <tr>
+						<th>Variable</th>
+						<th>Description</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td><code>ntp_time_initd</code></td>
+						<td>1 if the NTP time has been initialized using <code>get_current_ntp_time()</code>, 0 otherwise.</td>
+					  </tr>
+					  <tr>
+						<td><code>rt_</code></td>
+						<td>Holds the value of the real time hours, minutes, or seconds.</td>
+					  </tr>
+					  <tr>
+						<td><code>prev_rt_secs</code></td>
+						<td>Holds the previous value of rt_secs - when rt_secs is different than this, the screen is updated.</td>
+					  </tr>
+					  <tr>
+						<td><code>ntp_time_ready</code></td>
+						<td>Indicates if the UDP module is ready to grab the NTP time.</td>
+					  </tr>
+					  <tr>
+						<td><code>rt_last_update</code></td>
+						<td>The time uptime at which the last real time update occurred, used to check if the displayed string should be updated which happens every second.</td>
+					  </tr>
+					  <tr>
+						<td><code>rt_uptime_ms</code></td>
+						<td>Used to keep track of uptime in the event there was an unsuccessful WiFi connection.</td>
+					  </tr>
+					</tbody>
+				  </table>
+
+				</div>
+			  </div>
+			  <div id="modal2" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal2')">&times;</span>
+				  <h2>Texting</h2>
+				  <img src="images/fulls/02.jpg" class="modal-img" />
+				  <p style="text-align: left;">The ability to communicate between devices through texting in our case is handled by UDP communication. When our watch connects with the beacon and gathers an established IP address, we also initialize a port for UDP communication to send and receive messages. By using the “netcat” command on a computer, we can communicate with a hardware device's specific IP and port if connected to the same SSID. The watch has an IP address along with which it is constantly polling on port 1234 for UDP messages. On our computer, we can connect to the port and IP of the watch and send messages to it. The watch interface will then receive the latest message using the get_latest_udp_message() function. If the latest message is different from the previous message, then we iterate through each character and put a newline every 16 characters so that the message will break onto the next line of the screen.</p>
+				  <table>
+					<thead>
+					  <tr>
+						<th>Variable</th>
+						<th>Description</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td><code>msg</code></td>
+						<td>Holds the latest UDP message as a character array.</td>
+					  </tr>
+					  <tr>
+						<td><code>filtered_message</code></td>
+						<td>Holds the latest UDP message as a character array with newlines and EOF's inserted for proper displaying on the screen.</td>
+					  </tr>
+					</tbody>
+				  </table>
+				</div>
+			  </div>
+			  <div id="modal3" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal3')">&times;</span>
+				  <h2>Heart Rate and SPO2 Monitoring</h2>
+				  <img src="images/fulls/03.jpg" class="modal-img" />
+				  <p style="text-align: left;">The ability to communicate between devices through texting in our case is handled by UDP communication. When our watch connects with the beacon and gathers an established IP address, we also initialize a port for UDP communication to send and receive messages. By using the “netcat” command on a computer, we can communicate with a hardware device's specific IP and port if connected to the same SSID. The watch has an IP address along with which it is constantly polling on port 1234 for UDP messages. On our computer, we can connect to the port and IP of the watch and send messages to it. The watch interface will then receive the latest message using the get_latest_udp_message() function. If the latest message is different from the previous message, then we iterate through each character and put a newline every 16 characters so that the message will break onto the next line of the screen.</p>
+				  <table>
+					<thead>
+					  <tr>
+						<th>Variable</th>
+						<th>Description</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td><code>hr_screen</code></td>
+						<td>1 if the app selection is on BPM, 0 if it is on SPO2.</td>
+					  </tr>
+					  <tr>
+						<td><code>hr_sense</code></td>
+						<td>A structure containing a buffer for red and IR photodetector values, as well as a head and tail pointer for the buffers.</td>
+					  </tr>
+					  <tr>
+						<td><code>hr_signal</code></td>
+						<td>A structure holding parameters for the IR signal over time, including AC max and min, value of the positive and negative edge, etc.</td>
+					  </tr>
+					  <tr>
+						<td><code>fir_coeffs</code></td>
+						<td>A constant array holding pre-defined coefficients for the FIR filter used for measuring BPM.</td>
+					  </tr>
+					</tbody>
+				  </table>
+				</div>
+			  </div>
+			  <div id="modal4" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal4')">&times;</span>
+				  <h2>Functionality 4: Carry On</h2>
+				  <img src="images/fulls/04.jpg" class="modal-img" />
+				  <p>Tested deep sleep and low power modes.</p>
+				  <p>Enabled motion-triggered wake via accelerometer interrupt.</p>
+				  <p>Logged uptime and battery drain rate.</p>
+				  <p>Configured watchdog timer to maintain reliability.</p>
+				  <p>Demonstrated motion-reactive behavior on wake.</p>
+				</div>
+			  </div>
+			  <div id="modal5" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal5')">&times;</span>
+				  <h2>Functionality 5: The Sparkling Shell</h2>
+				  <img src="images/fulls/05.jpg" class="modal-img" />
+				  <p>Integrated capacitive touch sensor panel.</p>
+				  <p>Displayed live feedback via I2C OLED screen.</p>
+				  <p>Developed visual UI for touch inputs.</p>
+				  <p>Applied timers to turn off display after idle.</p>
+				  <p>All electronics mounted into 3D-printed housing.</p>
+				</div>
+			  </div>
+			  <div id="modal6" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal6')">&times;</span>
+				  <h2>Functionality 6: Bent IX</h2>
+				  <img src="images/fulls/06.jpg" class="modal-img" />
+				  <p>
+				</div>
+			  </div>
+			  <!-- <div id="modal7" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal7')">&times;</span>
+				  <h2>Functionality 6: Bent IX</h2>
+				  <img src="images/fulls/06.jpg" class="modal-img" />
+				  <p>Final integration of sensors, BLE, and display.</p>
+				  <p>Tested entire power loop under expected use case.</p>
+				  <p>Measured system runtime on battery.</p>
+				  <p>Validated all states from power-on to sleep.</p>
+				  <p>Final codebase prepared for demo presentation.</p>
+				</div>
+			  </div>
+			  <div id="modal8" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal8')">&times;</span>
+				  <h2>Functionality 6: Bent IX</h2>
+				  <img src="images/fulls/06.jpg" class="modal-img" />
+				  <p>Final integration of sensors, BLE, and display.</p>
+				  <p>Tested entire power loop under expected use case.</p>
+				  <p>Measured system runtime on battery.</p>
+				  <p>Validated all states from power-on to sleep.</p>
+				  <p>Final codebase prepared for demo presentation.</p>
+				</div>
+			  </div> -->
+			  
+			  <!-- Modal JS -->
+			  <script>
+				function openModal(id) {
+				  document.getElementById(id).style.display = 'block';
+				}
+			  
+				function closeModal(id) {
+				  document.getElementById(id).style.display = 'none';
+				}
+			  
+				window.onclick = function(event) {
+				  document.querySelectorAll('.custom-modal').forEach(modal => {
+					if (event.target === modal) {
+					  modal.style.display = 'none';
+					}
+				  });
+				}
+			  </script>
 
 		<!-- Contact -->
 			<section id="contact" class="main style3 secondary">

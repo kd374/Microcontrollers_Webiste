@@ -85,13 +85,20 @@
 				caption: function($a) {
 				  return $a.attr('data-caption');
 				},
+				usePopupCaption: true,
+				usePopupDefaultStyling: false, // disables default forced layout
 				overlayColor: '#000',
-				overlayOpacity: 0.75,
+				overlayOpacity: 0.85,
 				popupCloserText: '',
 				popupLoaderText: '',
 				selector: 'a.image',
-				usePopupCaption: true,
+				popupWidth: 700,
+				popupHeight: 600,
+				windowMargin: 30
 			  });
+
+			  
+			  
 
 			// Hack: Adjust margins when 'small' activates.
 				breakpoints.on('>small', function() {
