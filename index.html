@@ -20,9 +20,8 @@
 				<nav>
 					<ul>
 						<li><a href="#intro">Intro</a></li>
-						<!-- <li><a href="#one">What I Do</a></li>
-						<li><a href="#two">Who I Am</a></li> -->
-						<li><a href="#work">Design Process</a></li>
+						<!-- <li><a href="#two">Functionalities</a></li> -->
+						<li><a href="#work">Design</a></li>
 						<li><a href="#contact">About Members</a></li>
 					</ul>
 				</nav>
@@ -253,6 +252,31 @@
 					</div>
 				  </a>
 				</article>
+			  
+
+			  <article class="style6" onclick="openModal('modal7')">
+				<span class="image">
+				  <img src="images/thumbs/06.jpg" alt="Functionality 6" />
+				</span>
+				<a href="javascript:void(0);">
+				  <h2>Stopwatch</h2>
+				  <div class="content">
+					<p>Click to learn more</p>
+				  </div>
+				</a>
+			  </article>
+
+			  <article class="style6" onclick="openModal('modal8')">
+				<span class="image">
+				  <img src="images/thumbs/06.jpg" alt="Functionality 6" />
+				</span>
+				<a href="javascript:void(0);">
+				  <h2>Stopwatch</h2>
+				  <div class="content">
+					<p>Click to learn more</p>
+				  </div>
+				</a>
+			  </article>
 			  </section>
 
 			    <!-- Tile 7 -->
@@ -419,18 +443,26 @@
 				  <p>
 				</div>
 			  </div>
-			  <!-- <div id="modal7" class="custom-modal">
+			  <div id="modal6" class="custom-modal">
+				<div class="custom-modal-content">
+				  <span class="close" onclick="closeModal('modal6')">&times;</span>
+				  <h2>Functionality 6: Bent IX</h2>
+				  <img src="images/fulls/06.jpg" class="modal-img" />
+				  <p>
+				</div>
+			  </div>
+			  <div id="modal7" class="custom-modal">
 				<div class="custom-modal-content">
 				  <span class="close" onclick="closeModal('modal7')">&times;</span>
 				  <h2>Functionality 6: Bent IX</h2>
-				  <img src="images/fulls/06.jpg" class="modal-img" />
+				  <img src="images/fulls/pic01.jpg" class="modal-img" />
 				  <p>Final integration of sensors, BLE, and display.</p>
 				  <p>Tested entire power loop under expected use case.</p>
 				  <p>Measured system runtime on battery.</p>
 				  <p>Validated all states from power-on to sleep.</p>
 				  <p>Final codebase prepared for demo presentation.</p>
 				</div>
-			  </div>
+			  </div> 
 			  <div id="modal8" class="custom-modal">
 				<div class="custom-modal-content">
 				  <span class="close" onclick="closeModal('modal8')">&times;</span>
@@ -442,7 +474,7 @@
 				  <p>Validated all states from power-on to sleep.</p>
 				  <p>Final codebase prepared for demo presentation.</p>
 				</div>
-			  </div> -->
+			  </div> 
 			  
 			  <!-- Modal JS -->
 			  <script>
@@ -464,7 +496,7 @@
 			  </script>
 
 		<!-- Contact -->
-			<section id="contact" class="main style3 secondary">
+			<!-- <section id="contact" class="main style3 secondary">
 				<div class="content">
 					<header>
 						<h2>Say Hello.</h2>
@@ -483,7 +515,113 @@
 						</form>
 					</div>
 				</div>
-			</section>
+			</section> -->
+
+			<meta charset="UTF-8">
+  <title>About Members</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+
+    .team {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .member {
+      background: white;
+      flex: 1;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .member img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 10px 0;
+    }
+
+    .social-icons {
+      margin: 10px 0;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .bio {
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="team">
+    <div class="member">
+      <h3>Alice Smith</h3>
+      <img src="alice.jpg" alt="Alice">
+      <div class="social-icons">
+        <a href="https://github.com/alicesmith" target="_blank">
+          <img src="github-icon.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/alicesmith" target="_blank">
+          <img src="linkedin-icon.png" alt="LinkedIn">
+        </a>
+      </div>
+      <div class="bio">
+        <p>Alice is a full-stack developer with a love for clean code. She enjoys mentoring junior devs and building scalable web apps.</p>
+      </div>
+    </div>
+
+    <div class="member">
+      <h3>Bob Johnson</h3>
+      <img src="bob.jpg" alt="Bob">
+      <div class="social-icons">
+        <a href="https://github.com/bobjohnson" target="_blank">
+          <img src="github-icon.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/bobjohnson" target="_blank">
+          <img src="linkedin-icon.png" alt="LinkedIn">
+        </a>
+      </div>
+      <div class="bio">
+        <p>Bob is a DevOps specialist who automates everything. He’s passionate about system reliability and open-source tools.</p>
+      </div>
+    </div>
+
+    <div class="member">
+      <h3>Carol Lee</h3>
+      <img src="carol.jpg" alt="Carol">
+      <div class="social-icons">
+        <a href="https://github.com/carollee" target="_blank">
+          <img src="github-icon.png" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/carollee" target="_blank">
+          <img src="linkedin-icon.png" alt="LinkedIn">
+        </a>
+      </div>
+      <div class="bio">
+        <p>Carol is a UX designer who turns complex ideas into intuitive interfaces. She collaborates closely with dev teams to craft great experiences.</p>
+      </div>
+    </div>
+  </div>
 
 		<!-- Footer -->
 			<footer id="footer">
