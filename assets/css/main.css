@@ -2769,5 +2769,9 @@ opacity: 1;
 transform: translateY(0);
 }
 
+.left-align-code {
+	text-align: left;
+  }
+
 
   
