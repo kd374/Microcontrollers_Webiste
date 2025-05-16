@@ -81,18 +81,24 @@
 
 			var $gallery = $('.gallery');
 
-			$gallery.poptrox({
-				baseZIndex: 10001,
-				useBodyOverflow: false,
-				usePopupEasyClose: false,
-				overlayColor: '#1f2328',
-				overlayOpacity: 0.65,
-				usePopupDefaultStyling: false,
+			$('.gallery').poptrox({
+				caption: function($a) {
+				  return $a.attr('data-caption');
+				},
 				usePopupCaption: true,
+				usePopupDefaultStyling: false, // disables default forced layout
+				overlayColor: '#000',
+				overlayOpacity: 0.85,
+				popupCloserText: '',
 				popupLoaderText: '',
-				windowMargin: 50,
-				usePopupNav: true
-			});
+				selector: 'a.image',
+				popupWidth: 700,
+				popupHeight: 600,
+				windowMargin: 30
+			  });
+
+			  
+			  
 
 			// Hack: Adjust margins when 'small' activates.
 				breakpoints.on('>small', function() {
@@ -183,6 +189,8 @@
 			breakpoints.on('>small', on);
 
 		}
+
+		
 
 	// Events.
 		var resizeTimeout, resizeScrollTimeout;
