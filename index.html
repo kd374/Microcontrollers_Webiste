@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -517,36 +518,143 @@
 				</div>
 			</section> -->
 
+			<section id="team" class="main style3 secondary">
+				<div class="content">
+				  <header>
+					<h2>Meet the Team</h2>
+					<p>We're a passionate group of developers and designers building great things together.</p>
+				  </header>
+			
+				  <div class="team">
+					<!-- Member 1 -->
+					<div class="member">
+					  <h3>Parker Schless</h3>
+					  <img src="images/fulls/parker_image.png" alt="Parker">
+					  <ul class="icons">
+						<li>
+						  <a href="https://github.com/pis7" class="icon brands fa-github" target="_blank">
+							<span class="label">GitHub</span>
+						  </a>
+						</li>
+						<li>
+						  <a href="https://linkedin.com/in/parker-schless" class="icon brands fa-linkedin" target="_blank">
+							<span class="label">LinkedIn</span>
+						  </a>
+						</li>
+					  </ul>
+					  
+					  <p>Parker is a senior and early MEng at Cornell University. He enjoys computer architecture.</p>
+					</div>
+			
+					<!-- Member 2 -->
+					<div class="member">
+						<h3>Katarina Duric</h3>
+						<img src="images/fulls/katarina_image.jpg" alt="Katarina">
+						<ul class="icons">
+						  <li>
+							<a href="https://github.com/kd374" class="icon brands fa-github" target="_blank">
+							  <span class="label">GitHub</span>
+							</a>
+						  </li>
+						  <li>
+							<a href="https://linkedin.com/in/katarina-duric" class="icon brands fa-linkedin" target="_blank">
+							  <span class="label">LinkedIn</span>
+							</a>
+						  </li>
+						</ul>
+						
+						<p>Katarina is a senior and early MEng at Cornell University. She enjoys analog and mixed-signal design.</p>
+					  </div>
+			
+					<!-- Member 3 -->
+					<div class="member">
+						<h3>George Maidhof</h3>
+						<img src="images/fulls/george_image.png" alt="Parker">
+						<ul class="icons">
+						  <li>
+							<a href="https://github.com/georgemaid" class="icon brands fa-github" target="_blank">
+							  <span class="label">GitHub</span>
+							</a>
+						  </li>
+						  <li>
+							<a href="https://linkedin.com/in/george-maidhof/" class="icon brands fa-linkedin" target="_blank">
+							  <span class="label">LinkedIn</span>
+							</a>
+						  </li>
+						</ul>
+						
+						<p>George is a senior and early MEng at Cornell University. He enjoys machine learning.</p>
+					  </div>
+				  </div>
+				</div>
+			  </section>
+			
+			  <script>
+				const members = document.querySelectorAll('.member');
+				const observer = new IntersectionObserver(entries => {
+				  entries.forEach(entry => {
+					if (entry.isIntersecting) {
+					  entry.target.classList.add('show');
+					}
+				  });
+				}, { threshold: 0.1 });
+			
+				members.forEach(member => observer.observe(member));
+			  </script>
+
+			
+
 			<meta charset="UTF-8">
   <title>About Members</title>
-  <style>
+  <!-- <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f5f5f5;
       margin: 0;
       padding: 40px;
-      background: #f5f5f5;
+    }
+
+    section.main {
+      background: #fff;
+      padding: 60px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
     }
 
     .team {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
       text-align: center;
-      gap: 20px;
     }
 
     .member {
-      background: white;
-      flex: 1;
+      flex: 0 0 250px;
+      background: #ffffff;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.8s ease-out;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .member.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .member img {
       width: 120px;
       height: 120px;
-      object-fit: cover;
       border-radius: 50%;
+      object-fit: cover;
       margin: 10px 0;
     }
 
@@ -554,74 +662,24 @@
       margin: 10px 0;
     }
 
-    .social-icons a {
-      margin: 0 10px;
-      display: inline-block;
-    }
-
     .social-icons img {
       width: 24px;
       height: 24px;
+      margin: 0 8px;
     }
 
-    .bio {
-      margin-top: 10px;
+    .member p {
       font-size: 0.95em;
       color: #333;
+      margin-top: 10px;
     }
-  </style>
+  </style> -->
 </head>
 <body>
 
-  <div class="team">
-    <div class="member">
-      <h3>Alice Smith</h3>
-      <img src="alice.jpg" alt="Alice">
-      <div class="social-icons">
-        <a href="https://github.com/alicesmith" target="_blank">
-          <img src="github-icon.png" alt="GitHub">
-        </a>
-        <a href="https://linkedin.com/in/alicesmith" target="_blank">
-          <img src="linkedin-icon.png" alt="LinkedIn">
-        </a>
-      </div>
-      <div class="bio">
-        <p>Alice is a full-stack developer with a love for clean code. She enjoys mentoring junior devs and building scalable web apps.</p>
-      </div>
-    </div>
-
-    <div class="member">
-      <h3>Bob Johnson</h3>
-      <img src="bob.jpg" alt="Bob">
-      <div class="social-icons">
-        <a href="https://github.com/bobjohnson" target="_blank">
-          <img src="github-icon.png" alt="GitHub">
-        </a>
-        <a href="https://linkedin.com/in/bobjohnson" target="_blank">
-          <img src="linkedin-icon.png" alt="LinkedIn">
-        </a>
-      </div>
-      <div class="bio">
-        <p>Bob is a DevOps specialist who automates everything. He’s passionate about system reliability and open-source tools.</p>
-      </div>
-    </div>
-
-    <div class="member">
-      <h3>Carol Lee</h3>
-      <img src="carol.jpg" alt="Carol">
-      <div class="social-icons">
-        <a href="https://github.com/carollee" target="_blank">
-          <img src="github-icon.png" alt="GitHub">
-        </a>
-        <a href="https://linkedin.com/in/carollee" target="_blank">
-          <img src="linkedin-icon.png" alt="LinkedIn">
-        </a>
-      </div>
-      <div class="bio">
-        <p>Carol is a UX designer who turns complex ideas into intuitive interfaces. She collaborates closely with dev teams to craft great experiences.</p>
-      </div>
-    </div>
-  </div>
+<!-- About Members -->
+<!--  -->
+  
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -634,6 +692,7 @@
 						<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
 						<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+						<li><a href="#" class="icon brands fa-pinterest"><span class="label">Github</span></a></li>
 					</ul>
 
 				<!-- Menu -->

@@ -2690,3 +2690,84 @@ input, select, textarea {
 			}
 
 		}
+
+/* Team members bio stuff */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 40px;
+}
+
+section.main {
+  background: #fff;
+  padding: 60px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.member {
+  flex: 0 0 250px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.member.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px 0;
+}
+
+.social-icons {
+  margin: 10px 0;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+}
+
+.member p {
+  font-size: 0.95em;
+  color: #333;
+  margin-top: 10px;
+}
+.fade-in {
+opacity: 0;
+transform: translateY(40px);
+transition: all 0.8s ease-out;
+}
+
+.fade-in.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+
+  
