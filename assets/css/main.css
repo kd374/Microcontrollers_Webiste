@@ -606,6 +606,12 @@ input, select, textarea {
 		letter-spacing: -0.05em;
 	}
 
+	h3 {
+		font-size: 1.5em;
+		line-height: 1.25em;
+		letter-spacing: -0.05em;
+	}
+
 	@media screen and (max-width: 736px) {
 
 		h2 {
