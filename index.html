@@ -79,7 +79,7 @@
 					<h2>Hardware Design</h2>
 				</header>
 				<p>Our group takes pride in our robust hardware design incorporating
-					custom PCB's, 3D-printed cases, and a variety of sensors and peripherals.
+					custom PCBs, 3D-Printed cases, and a variety of sensors and peripherals.
 				</p>
 			</div>
 			<a href="#two" class="button style2 down anchored">Next</a>
@@ -131,13 +131,20 @@
 						<img src="images/fulls/group.jpg" alt="Project Introduction" style="width: 60%; height: auto;">
 						<figcaption style="font-size: 0.8em;">Our group - Parker Schless (left), Katarina Duric (middle), George Maidhof (right)</figcaption>
 					</figure>
-					<div style="display: flex; justify-content: center;">
-						<div style="position: relative; width: 100%; max-width: 1000px; padding-bottom: 56.25%; height: 0;">
-							<iframe src="https://www.youtube.com/embed/u0ErQuF8XQI"
-									style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-									frameborder="0" allowfullscreen></iframe>
-						</div>
+					&nbsp;
+
+					<figure style="max-width: 1000px; margin: auto;">
+					<div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+						<iframe src="https://www.youtube.com/embed/u0ErQuF8XQI"
+								style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+								frameborder="0" allowfullscreen>
+						</iframe>
 					</div>
+					<figcaption style="text-align: center; font-size: 0.9em; margin-top: 10px;">
+						Final Project Demo Video
+					</figcaption>
+					</figure>
+					&nbsp;
 					<h2>High-Level Design</h2>
 					<h3>Rationale and Sources</h3>
 					<p style="text-align: left;">The rationale behind this project is that we wanted to utilize a variety of 
@@ -172,7 +179,7 @@
 						estimator is implemented with the following library code where "p" is the pointer
 						to the variable holding the average and "x" is the new sample. An estimation
 						of the DC component is also returned:
-					<pre style="text-align: left;">
+					<details><summary>Click here for DC Component Estimation Code Snippet!</summary><pre style="text-align: left;">
 						<code>
 //  Average DC Estimator
 int16_t max30102_hr_avg_dc_estimator(
@@ -183,7 +190,7 @@ int16_t max30102_hr_avg_dc_estimator(
   return (*p >> 15);
 }
 						</code>
-					</pre></p>
+					</pre></details></p>
 					<p style="text-align: left;">
 						The low-pass FIR filter works by multiplying accumulating the input signal
 						with multiplications by pre-computed coefficients in what is considered a
@@ -192,7 +199,7 @@ int16_t max30102_hr_avg_dc_estimator(
 						where "din" is the new sample minus the estimated average from the DC estimator, 
 						"cbuf" is the circular buffer of the last 32 samples, "offset" is the current index in the
 						circular buffer, and "FIRCoeffs" is the array of pre-computed coefficients:
-					<pre style="text-align: left;">
+					<details><summary>Click here for Low Pass FIR Filter Code Snippet!</summary><pre style="text-align: left;">
 						<code>
 // Low Pass FIR Filter
 int16_t max30102_hr_low_pass_fir_filter(
@@ -210,14 +217,14 @@ int16_t max30102_hr_low_pass_fir_filter(
   return(z >> 15);
 }
 						</code>
-					</pre></p>
+					</pre></details></p>
 					<p style="text-align: left;">Once the signal is smoothed out using the DC estimator and low-pass FIR filter,
 						a positive crossing is detected by checking if the previous sample was negative
 						and the current sample is positive. If this is true, then a heartbeat has been
 						detected and necessary calculations can be made to determine the heart rate as
 						described later in our software implementation section.
 					</p>
-					<p style="text-align: left;">For SPO2 detection, we first obtain the DC mean for the IR signal by taking a simple
+					<p style="text-align: left;">For SPO2 detection, we first obtain the DC mean for the infrared (IR) signal by taking a simple
 						average. Next, we find the two lowest values in the IR values signal and find the
 						corresponding max to use between those. This process yields values for the following 
 						equation for calculation of the
@@ -229,7 +236,7 @@ int16_t max30102_hr_low_pass_fir_filter(
 						specific percentage to use. The library code to find the maximum value between the two
 						lowest points in the IR signal and compute the above formula is as follows (see
 						the code repository for more details on the specifics of the algorithm):
-						<pre style="text-align: left;">
+						<details><summary>Click here for SPO2 Algorithm Code Snippet!</summary><pre style="text-align: left;">
 							<code>
 // find max between two valley locations 
 // and use an_ratio betwen AC compoent of Ir & Red and DC compoent of Ir & Red for SPO2 
@@ -261,7 +268,7 @@ for (k = 0; k < n_exact_ir_valley_locs_count-1; k++) {
 	}
 }
 							</code>
-						</pre>
+						</pre></details>
 					</p>
 					<h4>PDM Compression Algorithm</h4>
 					<p style="text-align: left;">A single sample produced by the PDM PIO block is 1024 bits wide. However,
@@ -273,7 +280,7 @@ for (k = 0; k < n_exact_ir_valley_locs_count-1; k++) {
 						are pre-computed and stored in a lookup table. Similar to the heart rate/SPO2
 						algorithm, low-pass and high-pass filtering is used to remove high-frequency
 						noise. A library code snippet which implements this is as follows:
-					<pre style="text-align: left;">
+					<details><summary>Click here for PDM Compression Algorithm Code Snippet!</summary><pre style="text-align: left;">
 						<code>
 for (i = 0, data_out_index = 0; i < Param->Fs / 1000; i++, data_out_index += channels) {
     Z0 = filter_tables_64[j](data, 0);
@@ -296,7 +303,7 @@ for (i = 0, data_out_index = 0; i < Param->Fs / 1000; i++, data_out_index += cha
     data += data_inc;
   }
 						</code>
-					</pre>
+					</pre></details>
 					</p>
 					<h3>Logical Structure</h3>
 					<p style="text-align: left;">Since our system involves significant hardware as well as software design,
@@ -339,6 +346,7 @@ for (i = 0, data_out_index = 0; i < Param->Fs / 1000; i++, data_out_index += cha
 							outside the boards are mounted within the 3D-printed case.</figcaption>
 						</figcaption>
 					</figure>
+					&nbsp;
 					<h3>PCB Design</h3>
 					<p style="text-align: left;">Our hardware design is centered around our custom 2-layer PCB built to house 
 						all components in as compact of a package as possible. This compactness 
@@ -365,8 +373,8 @@ for (i = 0, data_out_index = 0; i < Param->Fs / 1000; i++, data_out_index += cha
 						on-board amplifier. As such, the microphone was placed at the top left 
 						and the speaker/DAC output at the top right. Next, we placed the 1.8V 
 						LDO and LiPo connector on the bottom left of the board, and the 6-pin 
-						JST connector for the heart rate daughter board on the bottom right. 
-						For the heart rate sensor itself, we made a separate 2-layer "daughter" board 
+						JST connector for the heart rate "daughter" board on the bottom right. 
+						For the heart rate sensor itself, we made a separate 2-layer daughter board 
 						for it as well as the decoupling capacitors since it needs to press 
 						tightly against the skin in order to work properly, and this could 
 						not be accomplished if put on the main board. We also placed the DAC 
@@ -397,6 +405,8 @@ for (i = 0, data_out_index = 0; i < Param->Fs / 1000; i++, data_out_index += cha
 						<img src="images/fulls/smartwatch_hr_layout_bcu.png" alt="Smartwatch Heart Rate Board Back Copper Layout" style="width: 20%; height: auto;">
 						<figcaption style="font-size: 0.8em;">Smartwatch heart rate board back copper layout</figcaption>
 					</figure>
+
+					&nbsp;
 
 				<section class="tiles">
 
@@ -685,6 +695,7 @@ for (i = 0, data_out_index = 0; i < Param->Fs / 1000; i++, data_out_index += cha
 					<img src="images/fulls/smartwatch_cad_4.png" alt="3D-Printed Case CAD 4" style="width:80%; height: auto;">
 					<figcaption style="font-size: 0.8em;">3D-printed case CAD angle 4</figcaption>
 				</figure>
+				&thinsp;
 				<h2>Costs</h2>
 				<p style="text-align: left;">Project specifications required our total unit cost to be under 
 					$125. We selected our parts using this as a guiding constraint. 
@@ -852,6 +863,7 @@ for (i = 0, data_out_index = 0; i < Param->Fs / 1000; i++, data_out_index += cha
 							content that is displayed on the OLED screen is seen in the rectangles.</figcaption>
 					</figure>
 
+					&nbsp;
 				<section class="tiles">
 
 					<!-- Tile 1 -->
@@ -1862,7 +1874,7 @@ switch (button_state) {
 					those provided by an Apple Watch, and found the measurements to be 
 					within 10 BPM, which is quite accurate given the complexity of the 
 					algorithm. While we did not have access to a dedicated pulse oximeter, 
-					all three of us knew our appropriate percentages were above 98%, and 
+					all three of us knew our appropriate percentages were above 95%, and 
 					our SPO2 readings always showed at or above this value for all of us. 
 					Step tracking was verified by walking a predetermined number of steps 
 					that we counted manually and ensuring the reading on the watch matched 
@@ -2074,7 +2086,7 @@ switch (button_state) {
 						  </li>
 						</ul>
 						
-						<p>Katarina is a senior and early MEng student at Cornell University. She enjoys analog and mixed-signal design.</p>
+						<p>Katarina is a senior and early MEng student at Cornell University. She enjoys Analog and Mixed-Signal Design, and Digital VLSI.</p>
 					  </div>
 			
 					<!-- Member 3 -->
